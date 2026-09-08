@@ -1,0 +1,1671 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mia Gildhoff Kirkegård</title>
+<meta name="description" content="Mia Gildhoff Kirkegård — Cand.it. from Syddansk Universitet with a background in healthcare. Software development, data analysis, machine learning and UX.">
+<meta property="og:title" content="Mia Gildhoff Kirkegård">
+<meta property="og:description" content="Cand.it. with a healthcare background. Software development, data analysis, IoT, machine learning and user-centred design.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #F7F5F0;
+    --bg-card: #EFEDE7;
+    --ink: #1C1917;
+    --ink-muted: #6B6560;
+    --ink-faint: #B5B0A8;
+    --accent: #2D5A3D;
+    --accent-warm: #C4622D;
+    --accent-light: #E8F0EA;
+    --border: #DDD9D0;
+    --serif: 'Cormorant Garamond', Georgia, serif;
+    --mono: 'DM Mono', monospace;
+    --sans: 'DM Sans', sans-serif;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.6;
+    overflow-x: hidden;
+    overflow-wrap: break-word;
+  }
+
+  /* ── NOISE TEXTURE OVERLAY ── */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 1000;
+    opacity: 0.4;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.2rem 3rem;
+    background: rgba(247, 245, 240, 0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav-name {
+    font-family: var(--serif);
+    font-size: 1.1rem;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    color: var(--ink);
+    text-decoration: none;
+  }
+
+  .nav-right {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .nav-lang {
+    font-family: var(--mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.08em;
+    color: var(--ink-muted);
+    text-decoration: none;
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    padding: 0.35rem 0.6rem;
+    transition: border-color 0.2s, color 0.2s;
+  }
+
+  .nav-lang:hover { border-color: var(--accent); color: var(--accent); }
+
+  .nav-links {
+    display: flex;
+    gap: 1.75rem;
+    list-style: none;
+    align-items: center;
+  }
+
+  .nav-links a {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--accent); }
+
+  .nav-cta {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    background: var(--ink);
+    color: var(--bg);
+    padding: 0.55rem 1.2rem;
+    border-radius: 2px;
+    text-decoration: none;
+    transition: background 0.2s;
+    cursor: pointer;
+    border: none;
+  }
+
+  .nav-cta:hover { background: var(--accent); color: var(--bg); }
+
+  /* ── HERO ── */
+  #hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 72px 0 0;
+  }
+
+  .hero-left {
+    min-height: calc(100vh - 72px);
+    padding: 5rem 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-right: 1px solid var(--border);
+  }
+
+  .hero-name-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-name-row .hero-name {
+    margin-bottom: 0;
+  }
+
+  .hero-photo {
+    width: 112px;
+    height: 112px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 1px solid var(--border);
+    display: block;
+    flex-shrink: 0;
+  }
+
+  .hero-name {
+    font-family: var(--serif);
+    font-size: clamp(2.6rem, 5.2vw, 4.8rem);
+    font-weight: 300;
+    line-height: 1.05;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-name em {
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  .hero-location {
+    font-family: var(--mono);
+    font-size: 0.78rem;
+    color: var(--ink-muted);
+    letter-spacing: 0.06em;
+    margin-bottom: 2rem;
+  }
+
+  .hero-bio {
+    font-size: 1.05rem;
+    line-height: 1.75;
+    color: var(--ink-muted);
+    max-width: 520px;
+    margin-bottom: 2.5rem;
+    font-weight: 300;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    background: var(--ink);
+    color: var(--bg);
+    padding: 0.8rem 1.8rem;
+    border-radius: 2px;
+    text-decoration: none;
+    transition: background 0.2s;
+    border: none;
+    cursor: pointer;
+  }
+  .btn-primary:hover { background: var(--accent); }
+
+  .btn-secondary {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    background: transparent;
+    color: var(--ink);
+    padding: 0.8rem 1.8rem;
+    border-radius: 2px;
+    border: 1px solid var(--border);
+    text-decoration: none;
+    transition: border-color 0.2s, color 0.2s;
+    cursor: pointer;
+  }
+  .btn-secondary:hover { border-color: var(--accent); color: var(--accent); }
+
+  .hero-right {
+    min-height: calc(100vh - 72px);
+    padding: 5rem 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1.5rem;
+    background: var(--bg-card);
+  }
+
+  /* ── STAT CARDS ── */
+  .stat-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  .stat-card {
+    background: var(--bg);
+    padding: 1.8rem;
+  }
+
+  .stat-number {
+    font-family: var(--serif);
+    font-size: 2.8rem;
+    font-weight: 300;
+    color: var(--ink);
+    line-height: 1;
+    margin-bottom: 0.3rem;
+  }
+
+  .stat-number em { font-style: italic; color: var(--accent); }
+
+  .stat-label {
+    font-family: var(--mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    line-height: 1.4;
+  }
+
+  .stat-sublabel {
+    font-family: var(--sans);
+    font-size: 0.75rem;
+    color: var(--ink-faint);
+    margin-top: 0.25rem;
+  }
+
+  /* ── SECTION STRUCTURE ── */
+  section {
+    padding: 6rem 0;
+  }
+
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 3rem;
+  }
+
+  .section-header {
+    display: flex;
+    align-items: baseline;
+    gap: 1.5rem;
+    margin-bottom: 4rem;
+  }
+
+  .section-eyebrow {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    white-space: nowrap;
+  }
+
+  .section-title {
+    font-family: var(--serif);
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 300;
+    color: var(--ink);
+    line-height: 1.1;
+  }
+
+  .section-title em { font-style: italic; color: var(--accent); }
+
+  /* ── SHARED BULLET LIST ── */
+  .bullets {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .bullets li {
+    font-size: 0.9rem;
+    color: var(--ink-muted);
+    line-height: 1.65;
+    font-weight: 300;
+    padding-left: 1.2rem;
+    position: relative;
+  }
+
+  .bullets li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-size: 0.75rem;
+  }
+
+  /* ── SHARED TAGS ── */
+  .tag-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+
+  .tag {
+    font-family: var(--mono);
+    font-size: 0.62rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 0.3rem 0.7rem;
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    color: var(--ink-muted);
+    background: var(--bg-card);
+  }
+
+  .tag-label {
+    font-family: var(--mono);
+    font-size: 0.62rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-bottom: 0.6rem;
+  }
+
+  /* ── SHARED CALLOUT ── */
+  .callout {
+    background: var(--accent-light);
+    border-left: 2px solid var(--accent);
+    padding: 0.9rem 1.1rem;
+    border-radius: 0 4px 4px 0;
+    margin-bottom: 1.5rem;
+  }
+
+  .callout-label {
+    display: block;
+    font-family: var(--mono);
+    font-size: 0.62rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.35rem;
+  }
+
+  .callout-icon { font-size: 0.9rem; margin-right: 0.4rem; }
+
+  .callout-text {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    color: var(--accent);
+    letter-spacing: 0.04em;
+    line-height: 1.5;
+  }
+
+  /* ── ABOUT ── */
+  #about { background: var(--bg); border-top: 1px solid var(--border); }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: start;
+  }
+
+  .about-text p {
+    font-size: 1.05rem;
+    line-height: 1.85;
+    color: var(--ink-muted);
+    font-weight: 300;
+    margin-bottom: 1.2rem;
+  }
+
+  .about-text p:last-child { margin-bottom: 0; }
+
+  .about-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .about-highlight {
+    border-left: 2px solid var(--accent);
+    padding: 1rem 1.5rem;
+    background: var(--accent-light);
+    border-radius: 0 4px 4px 0;
+  }
+
+  .about-highlight-label {
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.3rem;
+  }
+
+  .about-highlight-value {
+    font-family: var(--serif);
+    font-size: 1.3rem;
+    font-weight: 400;
+    color: var(--ink);
+    line-height: 1.35;
+  }
+
+  /* ── EDUCATION ── */
+  #education { background: var(--bg-card); border-top: 1px solid var(--border); }
+
+  .edu-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .edu-card {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 2.5rem;
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 3rem;
+    transition: border-color 0.2s;
+  }
+
+  .edu-card:hover { border-color: var(--accent); }
+
+  .edu-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .edu-dates {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.06em;
+    color: var(--ink-muted);
+  }
+
+  .edu-school {
+    font-family: var(--serif);
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: var(--ink);
+    line-height: 1.3;
+  }
+
+  .edu-location {
+    font-family: var(--mono);
+    font-size: 0.68rem;
+    color: var(--ink-faint);
+    letter-spacing: 0.06em;
+    line-height: 1.5;
+  }
+
+  .edu-year-block {
+    margin-top: auto;
+    padding-top: 1rem;
+  }
+
+  .edu-year-number {
+    font-family: var(--serif);
+    font-size: 2rem;
+    font-weight: 300;
+    color: var(--accent);
+    line-height: 1;
+  }
+
+  .edu-year-label {
+    font-family: var(--mono);
+    font-size: 0.62rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+  }
+
+  .edu-degree {
+    font-family: var(--serif);
+    font-size: 1.6rem;
+    font-weight: 400;
+    color: var(--ink);
+    margin-bottom: 0.3rem;
+    line-height: 1.2;
+  }
+
+  .edu-field {
+    font-family: var(--serif);
+    font-size: 1.1rem;
+    font-style: italic;
+    color: var(--accent);
+    margin-bottom: 1rem;
+  }
+
+  .edu-desc {
+    font-size: 0.92rem;
+    color: var(--ink-muted);
+    line-height: 1.7;
+    font-weight: 300;
+    margin-bottom: 1.2rem;
+  }
+
+  .edu-desc strong { font-weight: 500; color: var(--ink); }
+
+  /* ── EXPERIENCE ── */
+  #experience { background: var(--bg); border-top: 1px solid var(--border); }
+
+  .exp-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .exp-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 2.5rem;
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 3rem;
+    transition: border-color 0.2s;
+  }
+
+  .exp-card:hover { border-color: var(--accent); }
+
+  .exp-company-logo {
+    font-family: var(--serif);
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 0.3rem;
+    line-height: 1.2;
+  }
+
+  .exp-company-sub {
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    color: var(--ink-muted);
+    letter-spacing: 0.06em;
+    line-height: 1.5;
+    margin-bottom: 0.75rem;
+  }
+
+  .exp-title {
+    font-family: var(--serif);
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: var(--ink);
+    margin-bottom: 0.2rem;
+    line-height: 1.2;
+  }
+
+  .exp-dates-loc {
+    font-family: var(--mono);
+    font-size: 0.68rem;
+    color: var(--ink-muted);
+    letter-spacing: 0.06em;
+    margin-bottom: 1.5rem;
+  }
+
+  /* ── PROJECTS ── */
+  #projects { background: var(--bg-card); border-top: 1px solid var(--border); }
+
+  .projects-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+
+  .project-card {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 2.2rem;
+    display: flex;
+    flex-direction: column;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+
+  .project-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-2px);
+  }
+
+  .project-card.featured {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: start;
+  }
+
+  .project-context {
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.75rem;
+  }
+
+  .project-title {
+    font-family: var(--serif);
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: var(--ink);
+    margin-bottom: 0.5rem;
+    line-height: 1.2;
+  }
+
+  .project-subtitle {
+    font-family: var(--serif);
+    font-size: 1rem;
+    font-style: italic;
+    color: var(--ink-muted);
+    margin-bottom: 1.2rem;
+  }
+
+  .project-desc {
+    font-size: 0.88rem;
+    color: var(--ink-muted);
+    line-height: 1.75;
+    font-weight: 300;
+    margin-bottom: 1.2rem;
+  }
+
+  .project-card > .project-desc { flex: 0 0 auto; }
+  .project-card > .bullets { flex: 1 1 auto; }
+
+  /* ── SKILLS ── */
+  #skills { background: var(--bg); border-top: 1px solid var(--border); }
+
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  .skill-group {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 2rem;
+  }
+
+  .skill-group-title {
+    font-family: var(--mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1.2rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .skill-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+
+  .skill-pill {
+    font-family: var(--sans);
+    font-size: 0.8rem;
+    font-weight: 300;
+    color: var(--ink);
+    background: var(--bg);
+    border: 1px solid var(--border);
+    padding: 0.35rem 0.75rem;
+    border-radius: 20px;
+  }
+
+  /* ── COMPETENCIES ── */
+  #competencies { background: var(--bg-card); border-top: 1px solid var(--border); }
+
+  .traits-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  .trait-card {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 2rem;
+    transition: border-color 0.2s;
+  }
+
+  .trait-card:hover { border-color: var(--accent); }
+
+  .trait-title {
+    font-family: var(--serif);
+    font-size: 1.3rem;
+    font-weight: 400;
+    color: var(--ink);
+    line-height: 1.25;
+    margin-bottom: 0.6rem;
+  }
+
+  .trait-desc {
+    font-size: 0.88rem;
+    color: var(--ink-muted);
+    line-height: 1.75;
+    font-weight: 300;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--ink);
+    color: var(--bg);
+    padding: 4rem 0 2.5rem;
+    border-top: 1px solid var(--border);
+  }
+
+  .footer-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 3rem;
+  }
+
+  .footer-top {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    margin-bottom: 3rem;
+    padding-bottom: 3rem;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+
+  .footer-name {
+    font-family: var(--serif);
+    font-size: 2rem;
+    font-weight: 300;
+    line-height: 1.2;
+    margin-bottom: 0.5rem;
+  }
+
+  .footer-tagline {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    color: rgba(247,245,240,0.5);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .footer-links {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    justify-content: center;
+  }
+
+  .footer-link {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    color: rgba(247,245,240,0.7);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 300;
+    transition: color 0.2s;
+  }
+
+  .footer-link:hover { color: var(--bg); }
+
+  .footer-link-icon {
+    font-family: var(--mono);
+    font-size: 0.62rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgba(247,245,240,0.35);
+    width: 60px;
+    flex-shrink: 0;
+  }
+
+  .footer-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .footer-copy {
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    color: rgba(247,245,240,0.3);
+    letter-spacing: 0.06em;
+  }
+
+  /* ── CONTACT MODAL ── */
+  .modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(28, 25, 23, 0.7);
+    backdrop-filter: blur(6px);
+    z-index: 500;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .modal-overlay.open { display: flex; }
+
+  .modal {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 3rem;
+    max-width: 480px;
+    width: 90%;
+    position: relative;
+  }
+
+  .modal-close {
+    position: absolute;
+    top: 1.2rem; right: 1.2rem;
+    background: none;
+    border: none;
+    font-family: var(--mono);
+    font-size: 0.8rem;
+    color: var(--ink-muted);
+    cursor: pointer;
+    letter-spacing: 0.06em;
+  }
+
+  .modal-title {
+    font-family: var(--serif);
+    font-size: 1.8rem;
+    font-weight: 300;
+    margin-bottom: 0.3rem;
+  }
+
+  .modal-sub {
+    font-size: 0.85rem;
+    color: var(--ink-muted);
+    font-weight: 300;
+    line-height: 1.7;
+    margin-bottom: 2rem;
+  }
+
+  .modal-options {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .modal-option {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 1.2rem;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    text-decoration: none;
+    color: var(--ink);
+    transition: border-color 0.2s;
+  }
+
+  .modal-option:hover { border-color: var(--accent); }
+
+  .modal-option-icon {
+    font-family: var(--mono);
+    font-size: 0.62rem;
+    letter-spacing: 0.08em;
+    color: var(--accent);
+    text-transform: uppercase;
+    min-width: 50px;
+  }
+
+  .modal-option-text { font-size: 0.9rem; font-weight: 300; }
+
+  /* ── FADE-IN ANIMATION ── */
+  .fade-up {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.65s ease, transform 0.65s ease;
+  }
+
+  .fade-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .fade-up { opacity: 1; transform: none; transition: none; }
+    .project-card:hover { transform: none; }
+    * { transition-duration: 0.01ms !important; }
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 1120px) {
+    .nav-links { gap: 1.15rem; }
+  }
+
+  @media (max-width: 980px) {
+    .nav-links li:nth-child(6) { display: none; }
+  }
+
+  @media (max-width: 900px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links li:not(:last-child) { display: none; }
+
+    #hero { grid-template-columns: 1fr; }
+    .hero-left { min-height: 0; padding: 4rem 1.5rem 2rem; border-right: none; border-bottom: 1px solid var(--border); }
+    .hero-right { min-height: 0; padding: 2.5rem 1.5rem; }
+
+    .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    .edu-card { grid-template-columns: 1fr; gap: 1.5rem; padding: 2rem; }
+    .exp-card { grid-template-columns: 1fr; gap: 1.5rem; padding: 2rem; }
+    .projects-grid { grid-template-columns: 1fr; }
+    .project-card.featured { grid-template-columns: 1fr; gap: 1.5rem; }
+    .skills-grid { grid-template-columns: 1fr 1fr; }
+    .traits-grid { grid-template-columns: 1fr 1fr; }
+    .footer-top { grid-template-columns: 1fr; gap: 2rem; }
+    .section-header { flex-direction: column; gap: 0.6rem; margin-bottom: 2.5rem; }
+    .container { padding: 0 1.5rem; }
+    .footer-inner { padding: 0 1.5rem; }
+    section { padding: 4rem 0; }
+    .edu-year-block { margin-top: 0.5rem; }
+  }
+
+  @media (max-width: 500px) {
+    .skills-grid { grid-template-columns: 1fr; }
+    .traits-grid { grid-template-columns: 1fr; }
+    .stat-grid { grid-template-columns: 1fr 1fr; }
+    .modal { padding: 2rem 1.5rem; }
+  }
+
+  @media (max-width: 400px) {
+    .stat-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav aria-label="Main">
+  <a href="#hero" class="nav-name">Mia Gildhoff Kirkegård</a>
+  <div class="nav-right">
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#competencies">Competencies</a></li>
+      <li><button class="nav-cta" onclick="openModal()">Contact Me</button></li>
+    </ul>
+    <a href="/da/" class="nav-lang" lang="da" hreflang="da">DA</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-left fade-up visible">
+    <div class="hero-name-row">
+      <h1 class="hero-name">Mia Gildhoff<br><em>Kirkegård</em></h1>
+      <img class="hero-photo" src="photo.jpg" alt="Mia Gildhoff Kirkegård">
+    </div>
+    <p class="hero-location">Denmark</p>
+    <p class="hero-bio">
+      With a background in healthcare and a master's in IT, I combine analytical, technical, and user-centred skills. I'm motivated by solving complex problems, working closely with others, and turning user needs into digital solutions that hold up in practice.
+    </p>
+    <div class="hero-actions">
+      <a href="#projects" class="btn-primary">View My Work</a>
+      <button class="btn-secondary" onclick="openModal()">Open to opportunities</button>
+      <button class="btn-secondary" onclick="openModal()">Contact</button>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="stat-grid">
+      <div class="stat-card">
+        <div class="stat-number">2</div>
+        <div class="stat-label">Programming<br>Languages</div>
+        <div class="stat-sublabel">Python &amp; JavaScript</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">4</div>
+        <div class="stat-label">Selected<br>Projects</div>
+        <div class="stat-sublabel">IoT · Data · Software · UX</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">4<em>+</em></div>
+        <div class="stat-label">Years in<br>Healthcare</div>
+        <div class="stat-sublabel">Clinical practice &amp; elderly care</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">2026</div>
+        <div class="stat-label">Cand.it.<br>Graduate</div>
+        <div class="stat-sublabel">Syddansk Universitet, Kolding</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="container">
+    <div class="section-header fade-up">
+      <span class="section-eyebrow">01 · Who I Am</span>
+      <h2 class="section-title">Healthcare Meets <em>IT</em></h2>
+    </div>
+    <div class="about-grid">
+      <div class="about-text fade-up">
+        <p>With a background in healthcare and a master's in IT, I have developed a strong combination of analytical, technical, and user-centred skills.</p>
+        <p>I've programmed in Python and JavaScript and have experience with APIs, data analysis, IoT data, and machine learning. Through my study projects I've worked on concrete problems in collaboration with both Vejle Municipality and EWII — from problem framing and data analysis to developing solution proposals.</p>
+        <p>My experience has given me insight into complex workflows and user needs, while my master's degree has strengthened my skills in software development, UX, and digital solutions. I thrive on learning new things, solving complex problems, and turning ideas into concrete solutions.</p>
+        <p>I am motivated by solving complex problems, working collaboratively, and translating user needs into effective digital solutions — and I'm looking for a role where I can keep developing my programming skills and grow into a strong backend developer on a skilled team.</p>
+      </div>
+      <div class="about-sidebar fade-up">
+        <div class="about-highlight">
+          <div class="about-highlight-label">Current focus</div>
+          <div class="about-highlight-value">Software development, data, and user-centred design</div>
+        </div>
+        <div class="about-highlight">
+          <div class="about-highlight-label">Background</div>
+          <div class="about-highlight-value">Healthcare · Cand.it.</div>
+        </div>
+        <div class="about-highlight">
+          <div class="about-highlight-label">Approach</div>
+          <div class="about-highlight-value">Understand the problem, analyse it, then land on a solution that works in practice.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+  <div class="container">
+    <div class="section-header fade-up">
+      <span class="section-eyebrow">02 · Academic Background</span>
+      <h2 class="section-title"><em>Education</em></h2>
+    </div>
+    <div class="edu-cards">
+
+      <div class="edu-card fade-up">
+        <div class="edu-meta">
+          <div class="edu-dates">Sep 2024 — Jun 2026</div>
+          <div class="edu-school">Syddansk Universitet</div>
+          <div class="edu-location">Kolding, Denmark</div>
+          <div class="edu-year-block">
+            <div class="edu-year-number">2026</div>
+            <div class="edu-year-label">Graduation year</div>
+          </div>
+        </div>
+        <div>
+          <div class="edu-degree">Cand.it.</div>
+          <div class="edu-field">IT, Communication and Organisation</div>
+          <p class="edu-desc"><strong>Thesis:</strong> Developed a machine learning model based on IoT data in collaboration with Vejle Municipality's IT department, to predict when indoor climate would deteriorate so staff could act proactively — including a figure and message designed to alert employees in time to air out the room.</p>
+          <ul class="bullets">
+            <li>Developed a game application using JavaScript, gaining hands-on experience with software development and programming</li>
+            <li>Developed websites using HTML, CSS, and JavaScript, with a focus on user interface and usability</li>
+            <li>Worked with UX, usability testing, and UI design to understand user needs and improve digital solutions</li>
+            <li>Created prototypes for improvements and tested them as part of UI and UX usability testing processes</li>
+            <li>Gained experience with agile development and Scrum</li>
+            <li>Applied Python for data analysis and visualization</li>
+            <li>Used SQL to retrieve data for the thesis</li>
+            <li>Integrated weather data from DMI (the Danish Meteorological Institute) via their API into the machine learning model</li>
+            <li>Used AI tools including ChatGPT, Microsoft Copilot, Claude, Gemini, and NotebookLM</li>
+            <li>Used design and media tools such as Canva, Adobe Illustrator, Adobe Premiere Pro, and Adobe InDesign</li>
+          </ul>
+          <div class="tag-label">Academic focus</div>
+          <div class="tag-row">
+            <span class="tag">Programming and software development</span>
+            <span class="tag">Data Science and Big Data</span>
+            <span class="tag">Data and digital technologies</span>
+            <span class="tag">Data governance</span>
+            <span class="tag">Data management</span>
+            <span class="tag">Data quality</span>
+            <span class="tag">User-centred design</span>
+            <span class="tag">User experience</span>
+            <span class="tag">Evaluation of digital solutions</span>
+            <span class="tag">Communication and organisation</span>
+            <span class="tag">Web technologies</span>
+            <span class="tag">Project work</span>
+            <span class="tag">Digitalisation and development</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="edu-card fade-up">
+        <div class="edu-meta">
+          <div class="edu-dates">Feb 2018 — Jun 2021</div>
+          <div class="edu-school">University College Lillebælt</div>
+          <div class="edu-location">Odense, Denmark</div>
+          <div class="edu-year-block">
+            <div class="edu-year-number">2021</div>
+            <div class="edu-year-label">Graduated</div>
+          </div>
+        </div>
+        <div>
+          <div class="edu-degree">Bachelor in Physiotherapy</div>
+          <div class="edu-field">Clinical practice · Communication · Collaboration</div>
+          <ul class="bullets">
+            <li>Conducted structured analysis and evaluation of complex problems and cases</li>
+            <li>Communicated complex professional knowledge clearly to different audiences</li>
+            <li>Collaborated with multidisciplinary teams and diverse stakeholders</li>
+            <li>Planned and coordinated coherent processes across multiple stakeholders</li>
+            <li>Made independent decisions based on structured professional assessments</li>
+            <li>Used electronic patient record systems and digital documentation tools</li>
+          </ul>
+          <div class="tag-row">
+            <span class="tag">Structured analysis</span>
+            <span class="tag">Professional communication</span>
+            <span class="tag">Multidisciplinary collaboration</span>
+            <span class="tag">Process coordination</span>
+            <span class="tag">Independent decision-making</span>
+            <span class="tag">Electronic patient records</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="container">
+    <div class="section-header fade-up">
+      <span class="section-eyebrow">03 · Professional Background</span>
+      <h2 class="section-title"><em>Experience</em></h2>
+    </div>
+    <div class="exp-cards">
+
+      <div class="exp-card fade-up">
+        <div class="edu-meta">
+          <div class="exp-company-logo">Steno Diabetes Center Aarhus</div>
+          <div class="exp-company-sub">Region Midtjylland<br>Communication &amp; digital content</div>
+          <div class="edu-dates" style="margin-top: 0.3rem;">Nov 2024 — Jan 2026</div>
+          <div class="edu-location" style="margin-top: 0.3rem;">Aarhus, Denmark<br>Student Assistant</div>
+        </div>
+        <div>
+          <div class="exp-title">Student Assistant</div>
+          <div class="exp-dates-loc">Steno Diabetes Center Aarhus · Region Midtjylland · Aarhus, Denmark</div>
+          <ul class="bullets">
+            <li>Created and structured web pages and modules in Optimizely CMS, focusing on usability, accessibility, and clear communication</li>
+            <li>Prepared and structured digital content in Adobe InDesign and Illustrator</li>
+            <li>Collaborated with IT project managers on the development of digital materials</li>
+            <li>Developed new research pages</li>
+            <li>Used Siteimprove for website analysis and quality assurance, including usability and accessibility</li>
+            <li>Applied WCAG standards to improve web accessibility</li>
+            <li>Worked with Optimizely (Episerver)</li>
+            <li>Used AI tools such as ChatGPT and Microsoft Copilot to support content development and workflows</li>
+            <li>Gained experience working in a large, politically governed organisation</li>
+          </ul>
+          <div class="callout">
+            <span class="callout-label">Takeaway</span>
+            <span class="callout-text">Experience with digital solutions in a complex organisation, and an understanding of how technology, organisation, and user needs connect.</span>
+          </div>
+          <div class="tag-row">
+            <span class="tag">Optimizely (Episerver)</span>
+            <span class="tag">Siteimprove</span>
+            <span class="tag">WCAG accessibility</span>
+            <span class="tag">Adobe InDesign</span>
+            <span class="tag">Adobe Illustrator</span>
+            <span class="tag">Web content structure</span>
+            <span class="tag">Stakeholder collaboration</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="exp-card fade-up">
+        <div class="edu-meta">
+          <div class="exp-company-logo">BeneFiT Højbjerg</div>
+          <div class="exp-company-sub">Fysioterapi<br>Private clinic</div>
+          <div class="edu-dates" style="margin-top: 0.3rem;">Dec 2021 — Jan 2025</div>
+          <div class="edu-location" style="margin-top: 0.3rem;">Højbjerg, Denmark<br>3+ years · Physiotherapist</div>
+        </div>
+        <div>
+          <div class="exp-title">Physiotherapist</div>
+          <div class="exp-dates-loc">BeneFiT Højbjerg Fysioterapi · Højbjerg, Denmark</div>
+          <ul class="bullets">
+            <li>Communicated complex information and treatment plans clearly to diverse audiences</li>
+            <li>Collaborated with municipalities, general practitioners, and insurance providers to coordinate patient care</li>
+            <li>Built strong relationships through active listening and a patient-centred approach</li>
+            <li>Managed structured documentation and patient records using the electronic health record system Equus</li>
+            <li>Created and managed digital content for social media, websites, and digital displays</li>
+          </ul>
+          <div class="callout">
+            <span class="callout-label">Takeaway</span>
+            <span class="callout-text">More than four years of experience in the health and elderly care sector, and a strong practical understanding of turning user needs into concrete solutions.</span>
+          </div>
+          <div class="tag-row">
+            <span class="tag">Patient communication</span>
+            <span class="tag">Cross-sector coordination</span>
+            <span class="tag">Equus (EHR)</span>
+            <span class="tag">Structured documentation</span>
+            <span class="tag">Digital content</span>
+            <span class="tag">Relationship building</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="exp-card fade-up">
+        <div class="edu-meta">
+          <div class="exp-company-logo">Fredericia Fysioterapi</div>
+          <div class="exp-company-sub">Fysioterapi og træningsklinik<br>Maternity cover</div>
+          <div class="edu-dates" style="margin-top: 0.3rem;">Oct 2021 — Dec 2021</div>
+          <div class="edu-location" style="margin-top: 0.3rem;">Fredericia, Denmark<br>Physiotherapist</div>
+        </div>
+        <div>
+          <div class="exp-title">Physiotherapist — Maternity cover</div>
+          <div class="exp-dates-loc">Fredericia Fysioterapi og træningsklinik · Fredericia, Denmark</div>
+          <ul class="bullets">
+            <li>Covered a maternity leave position, providing physiotherapy treatment and patient documentation using Complimenta</li>
+          </ul>
+          <div class="tag-row">
+            <span class="tag">Complimenta (EHR)</span>
+            <span class="tag">Clinical practice</span>
+            <span class="tag">Documentation</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="exp-card fade-up">
+        <div class="edu-meta">
+          <div class="exp-company-logo">Fit&amp;Sund Skanderborg</div>
+          <div class="exp-company-sub">Training &amp; rehabilitation<br>Clinical internship</div>
+          <div class="edu-dates" style="margin-top: 0.3rem;">Aug 2021 — Sep 2021</div>
+          <div class="edu-location" style="margin-top: 0.3rem;">Skanderborg, Denmark<br>Intern</div>
+        </div>
+        <div>
+          <div class="exp-title">Physiotherapist — Internship</div>
+          <div class="exp-dates-loc">Fit&amp;Sund Skanderborg · Skanderborg, Denmark</div>
+          <ul class="bullets">
+            <li>Completed clinical internship providing physiotherapy treatment and documentation using Equus</li>
+          </ul>
+          <div class="tag-row">
+            <span class="tag">Equus (EHR)</span>
+            <span class="tag">Clinical internship</span>
+            <span class="tag">Documentation</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="container">
+    <div class="section-header fade-up">
+      <span class="section-eyebrow">04 · Selected Work</span>
+      <h2 class="section-title"><em>Projects</em></h2>
+    </div>
+    <div class="projects-grid">
+
+      <div class="project-card featured fade-up">
+        <div>
+          <div class="project-context">Syddansk Universitet · Master's Thesis · Vejle Municipality IT Department</div>
+          <div class="project-title">Predicting Indoor Climate with IoT and Machine Learning</div>
+          <div class="project-subtitle">IoT sensor data · DMI weather API · Python · SQL</div>
+          <p class="project-desc">Worked on Vejle Municipality's challenges around indoor climate quality. The goal was to predict when the indoor climate would start to deteriorate, so staff could act proactively before it became a problem.</p>
+          <p class="project-desc">Collected and processed data from IoT sensors, retrieved the underlying records with SQL, cleaned it, and analysed it in Python to investigate which factors affected indoor climate. Weather data from DMI was integrated into the model via their API, and the result was delivered as both a prediction model and a concrete alert designed for the people who would use it.</p>
+        </div>
+        <div>
+          <ul class="bullets">
+            <li>Collected and processed data from IoT sensors</li>
+            <li>Used SQL to retrieve the underlying data</li>
+            <li>Cleaned the data before analysis</li>
+            <li>Analysed the data in Python</li>
+            <li>Investigated which factors affected indoor climate</li>
+            <li>Integrated weather data from DMI (the Danish Meteorological Institute) via their API into the model</li>
+            <li>Developed a machine learning model to predict when indoor climate conditions would deteriorate</li>
+            <li>Designed a figure together with an accompanying message to be sent to employees before the indoor climate became too poor, giving them time to air out the room</li>
+            <li>Took the project from an organisational challenge to a technical solution proposal</li>
+          </ul>
+          <div class="callout">
+            <span class="callout-icon">🎯</span>
+            <span class="callout-text">IoT data → SQL → Python analysis → ML prediction → proactive alert · Taken from organisational challenge to technical solution proposal</span>
+          </div>
+          <div class="tag-row">
+            <span class="tag">Python</span>
+            <span class="tag">SQL</span>
+            <span class="tag">DMI API</span>
+            <span class="tag">Data cleaning</span>
+            <span class="tag">Data analysis</span>
+            <span class="tag">IoT</span>
+            <span class="tag">Machine learning</span>
+            <span class="tag">Problem solving</span>
+            <span class="tag">Cross-organisational collaboration</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card fade-up">
+        <div class="project-context">Syddansk Universitet · Data Analysis Project · EWII</div>
+        <div class="project-title">Finding the Cause of Data Errors</div>
+        <div class="project-subtitle">Data cleaning · Analysis · Solution proposal</div>
+        <p class="project-desc">Worked on a concrete problem around data errors, scoped together with EWII, and traced it back to its underlying causes and patterns.</p>
+        <ul class="bullets">
+          <li>Scoped the problem together with EWII</li>
+          <li>Cleaned the data before analysis</li>
+          <li>Analysed data to identify causes and patterns</li>
+          <li>Prepared and presented a solution proposal</li>
+          <li>Communicated technical findings to project partners</li>
+        </ul>
+        <div class="callout">
+          <span class="callout-icon">📊</span>
+          <span class="callout-text">Causes and patterns identified · Solution proposal prepared and presented to project partners</span>
+        </div>
+        <div class="tag-row">
+          <span class="tag">Data cleaning</span>
+          <span class="tag">Data analysis</span>
+          <span class="tag">Problem solving</span>
+          <span class="tag">Communication</span>
+          <span class="tag">Cross-organisational collaboration</span>
+        </div>
+      </div>
+
+      <div class="project-card fade-up">
+        <div class="project-context">Syddansk Universitet · Software Development</div>
+        <div class="project-title">Game Application in JavaScript</div>
+        <div class="project-subtitle">Scrum · Iterative development · Testing</div>
+        <p class="project-desc">Developed a game application from idea to a finished, tested product, working through the full agile cycle.</p>
+        <ul class="bullets">
+          <li>Programmed the game in JavaScript</li>
+          <li>Worked with Scrum and agile development methods</li>
+          <li>Worked iteratively through development, testing, and refinement</li>
+          <li>Turned an idea into a concrete software product</li>
+        </ul>
+        <div class="callout">
+          <span class="callout-icon">🎮</span>
+          <span class="callout-text">Idea to finished, tested product · Full agile cycle from development through refinement</span>
+        </div>
+        <div class="tag-row">
+          <span class="tag">JavaScript</span>
+          <span class="tag">Software development</span>
+          <span class="tag">Scrum</span>
+          <span class="tag">Agile methods</span>
+          <span class="tag">Testing</span>
+          <span class="tag">Problem solving</span>
+        </div>
+      </div>
+
+      <div class="project-card fade-up">
+        <div class="project-context">Syddansk Universitet · UX &amp; Usability</div>
+        <div class="project-title">UX and Usability Testing</div>
+        <div class="project-subtitle">User-centred design · Prototyping · Visual communication</div>
+        <p class="project-desc">Worked with user experience and usability testing of digital solutions throughout the programme, from identifying issues to prototyping improvements.</p>
+        <ul class="bullets">
+          <li>Conducted usability tests</li>
+          <li>Identified issues in digital solutions</li>
+          <li>Analysed user behaviour and feedback</li>
+          <li>Created prototypes as part of UX and usability testing processes</li>
+          <li>Also designed conversation cards, posters, and brochures</li>
+        </ul>
+        <div class="callout">
+          <span class="callout-icon">🔍</span>
+          <span class="callout-text">Issues surfaced through structured usability testing · Improvements prototyped and tested with users</span>
+        </div>
+        <div class="tag-row">
+          <span class="tag">UX</span>
+          <span class="tag">Usability testing</span>
+          <span class="tag">User-centred design</span>
+          <span class="tag">UI design</span>
+          <span class="tag">Analysis</span>
+          <span class="tag">Visual communication</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="container">
+    <div class="section-header fade-up">
+      <span class="section-eyebrow">05 · What I Bring</span>
+      <h2 class="section-title"><em>Skills</em></h2>
+    </div>
+    <div class="skills-grid">
+
+      <div class="skill-group fade-up">
+        <div class="skill-group-title">Programming</div>
+        <div class="skill-list">
+          <span class="skill-pill">Python</span>
+          <span class="skill-pill">SQL</span>
+          <span class="skill-pill">JavaScript</span>
+          <span class="skill-pill">Foundational software development</span>
+          <span class="skill-pill">HTML</span>
+          <span class="skill-pill">CSS</span>
+          <span class="skill-pill">JSON</span>
+          <span class="skill-pill">XML</span>
+          <span class="skill-pill">VS Code</span>
+          <span class="skill-pill">Jupyter Notebook</span>
+        </div>
+      </div>
+
+      <div class="skill-group fade-up">
+        <div class="skill-group-title">Data &amp; Development</div>
+        <div class="skill-list">
+          <span class="skill-pill">Data analysis</span>
+          <span class="skill-pill">APIs and data exchange</span>
+          <span class="skill-pill">IoT data</span>
+          <span class="skill-pill">Machine learning</span>
+          <span class="skill-pill">Data Science and Big Data</span>
+          <span class="skill-pill">Data management</span>
+          <span class="skill-pill">Data governance</span>
+          <span class="skill-pill">Data quality</span>
+          <span class="skill-pill">Statistical modelling</span>
+          <span class="skill-pill">Data visualization</span>
+          <span class="skill-pill">Data transformation</span>
+          <span class="skill-pill">Project work</span>
+        </div>
+      </div>
+
+      <div class="skill-group fade-up">
+        <div class="skill-group-title">Design &amp; UX</div>
+        <div class="skill-list">
+          <span class="skill-pill">User-centred design</span>
+          <span class="skill-pill">Usability testing</span>
+          <span class="skill-pill">UX</span>
+          <span class="skill-pill">Design of digital solutions</span>
+          <span class="skill-pill">Visual communication</span>
+          <span class="skill-pill">IT design</span>
+          <span class="skill-pill">Prototyping</span>
+          <span class="skill-pill">UX research</span>
+          <span class="skill-pill">Usability</span>
+          <span class="skill-pill">Web accessibility</span>
+        </div>
+      </div>
+
+      <div class="skill-group fade-up">
+        <div class="skill-group-title">Digital Systems</div>
+        <div class="skill-list">
+          <span class="skill-pill">Optimizely (Episerver)</span>
+          <span class="skill-pill">Siteimprove</span>
+          <span class="skill-pill">WCAG accessibility standards</span>
+          <span class="skill-pill">Electronic health records (Equus, Complimenta)</span>
+        </div>
+      </div>
+
+      <div class="skill-group fade-up">
+        <div class="skill-group-title">AI Tools</div>
+        <div class="skill-list">
+          <span class="skill-pill">ChatGPT</span>
+          <span class="skill-pill">Microsoft Copilot</span>
+          <span class="skill-pill">Claude</span>
+          <span class="skill-pill">Gemini</span>
+          <span class="skill-pill">NotebookLM</span>
+        </div>
+      </div>
+
+      <div class="skill-group fade-up">
+        <div class="skill-group-title">Ways of Working</div>
+        <div class="skill-list">
+          <span class="skill-pill">Agile methods</span>
+          <span class="skill-pill">Scrum</span>
+          <span class="skill-pill">Iterative development</span>
+          <span class="skill-pill">Testing</span>
+        </div>
+      </div>
+
+      <div class="skill-group fade-up">
+        <div class="skill-group-title">Other</div>
+        <div class="skill-list">
+          <span class="skill-pill">Digitalisation and optimisation</span>
+          <span class="skill-pill">Communication</span>
+          <span class="skill-pill">Organisational communication</span>
+          <span class="skill-pill">Healthcare practice</span>
+        </div>
+      </div>
+
+      <div class="skill-group fade-up">
+        <div class="skill-group-title">Languages</div>
+        <div class="skill-list">
+          <span class="skill-pill">Danish — native</span>
+          <span class="skill-pill">English</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- COMPETENCIES -->
+<section id="competencies">
+  <div class="container">
+    <div class="section-header fade-up">
+      <span class="section-eyebrow">06 · How I Work</span>
+      <h2 class="section-title"><em>Competencies</em></h2>
+    </div>
+    <div class="traits-grid">
+
+      <div class="trait-card fade-up">
+        <div class="trait-title">Analytical and solution-oriented</div>
+        <p class="trait-desc">Works systematically to understand a problem, analyse it, and land on a solution that works in practice.</p>
+      </div>
+
+      <div class="trait-card fade-up">
+        <div class="trait-title">Structured</div>
+        <p class="trait-desc">Approaches complex tasks methodically, from problem framing through to implementation.</p>
+      </div>
+
+      <div class="trait-card fade-up">
+        <div class="trait-title">Strong communicator</div>
+        <p class="trait-desc">Explains complex technical and professional topics clearly to different audiences.</p>
+      </div>
+
+      <div class="trait-card fade-up">
+        <div class="trait-title">Teamplayer</div>
+        <p class="trait-desc">Thrives in close collaboration with others while taking ownership of individual tasks.</p>
+      </div>
+
+      <div class="trait-card fade-up">
+        <div class="trait-title">Curious</div>
+        <p class="trait-desc">Motivated by learning new technologies and digging into technical problems.</p>
+      </div>
+
+      <div class="trait-card fade-up">
+        <div class="trait-title">User-oriented</div>
+        <p class="trait-desc">UX experience combined with a healthcare background gives a natural instinct for who a solution needs to work for.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <div class="footer-name">Mia Gildhoff Kirkegård</div>
+        <div class="footer-tagline">Healthcare background · Cand.it. · Software, data and UX</div>
+      </div>
+      <div class="footer-links">
+        <a href="mailto:miagildhoffk@gmail.com" class="footer-link">
+          <span class="footer-link-icon">Email</span>
+          miagildhoffk@gmail.com
+        </a>
+        <a href="tel:+4521426738" class="footer-link">
+          <span class="footer-link-icon">Phone</span>
+          +45 21 42 67 38
+        </a>
+        <!-- Add your LinkedIn by uncommenting this and pasting your profile URL and handle:
+        <a href="https://www.linkedin.com/in/YOUR-HANDLE" target="_blank" rel="noopener" class="footer-link">
+          <span class="footer-link-icon">LinkedIn</span>
+          YOUR-HANDLE
+        </a>
+        -->
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2026 Mia Gildhoff Kirkegård · Denmark</div>
+    </div>
+  </div>
+</footer>
+
+<!-- CONTACT MODAL -->
+<div class="modal-overlay" id="contactModal" onclick="closeModalOnOverlay(event)" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal()">✕ Close</button>
+    <div class="modal-title" id="modalTitle">Get In Touch</div>
+    <p class="modal-sub">Open to opportunities where I can grow as an Associate Consultant and keep developing my technical and user-centred skills — happy to hear from you.</p>
+    <div class="modal-options">
+      <a href="mailto:miagildhoffk@gmail.com" class="modal-option">
+        <span class="modal-option-icon">Email</span>
+        <span class="modal-option-text">miagildhoffk@gmail.com</span>
+      </a>
+      <a href="tel:+4521426738" class="modal-option">
+        <span class="modal-option-icon">Phone</span>
+        <span class="modal-option-text">+45 21 42 67 38</span>
+      </a>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Modal
+  function openModal() {
+    document.getElementById('contactModal').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeModal() {
+    document.getElementById('contactModal').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  function closeModalOnOverlay(e) {
+    if (e.target === document.getElementById('contactModal')) closeModal();
+  }
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
+  // Scroll fade-in
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.fade-up:not(.visible)').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
